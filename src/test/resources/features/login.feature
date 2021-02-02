@@ -1,7 +1,7 @@
 @login
 Feature: User should be able to login
 
-  @driver @wip
+  @driver
   Scenario: Login as a driver
     Given The user is on the login page
     When The user enters driver information

@@ -62,6 +62,15 @@ public class LoginStepsDefs {
         LoginPage loginPage = new LoginPage();
         loginPage.login(username,password);
     }
+    @When("The user logs in using {string} and {string}")
+    public void the_user_logs_in_using_and(String username, String password) {
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(username,password);
 
+    }
+    @Then("The title contains {string}")
+    public void the_title_contains(String expectedTitle) {
+       Assert.assertTrue(Driver.get().getTitle().contains(expectedTitle) );
 
-}
+    }
+    }
