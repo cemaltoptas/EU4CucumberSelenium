@@ -1,5 +1,6 @@
 package com.vytrack.step_definitions;
 
+import com.vytrack.pages.BasePage;
 import com.vytrack.pages.DashBoardPage;
 import com.vytrack.pages.LoginPage;
 import com.vytrack.utilities.BrowserUtils;
@@ -12,7 +13,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
-public class LoginStepsDefs {
+public class LoginStepsDefs extends BasePage{
 
     @Given("The user is on the login page")
     public void the_user_is_on_the_login_page() {
@@ -73,4 +74,14 @@ public class LoginStepsDefs {
        Assert.assertTrue(Driver.get().getTitle().contains(expectedTitle) );
 
     }
+    @When("The user navigates to {string} {string}")
+    public void the_user_navigates_to(String tab, String module) {
+
+        new DashBoardPage().navigateToModule(tab,module);
     }
+    @Then("The default page number should be {int}")
+    public void the_default_page_number_should_be(Integer pageNumber) {
+
+
+    }
+}

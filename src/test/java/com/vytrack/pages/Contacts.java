@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class Contacts extends BasePage{
 
     public Contacts(){
+
         PageFactory.initElements(Driver.get(),this);
     }
 
