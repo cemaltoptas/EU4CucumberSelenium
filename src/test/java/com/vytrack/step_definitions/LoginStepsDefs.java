@@ -1,6 +1,7 @@
 package com.vytrack.step_definitions;
 
 import com.vytrack.pages.BasePage;
+import com.vytrack.pages.ContactsPage;
 import com.vytrack.pages.DashBoardPage;
 import com.vytrack.pages.LoginPage;
 import com.vytrack.utilities.BrowserUtils;
@@ -80,8 +81,13 @@ public class LoginStepsDefs extends BasePage{
         new DashBoardPage().navigateToModule(tab,module);
     }
     @Then("The default page number should be {int}")
-    public void the_default_page_number_should_be(Integer pageNumber) {
+    public void the_default_page_number_should_be(Integer page) {
 
+        BrowserUtils.waitFor(5);
+        ContactsPage contactsPage = new ContactsPage();
+        Integer pageNumber =Integer.parseInt(contactsPage.pageNumber.getAttribute("value"));
+
+        Assert.assertEquals(page,pageNumber);
 
     }
 }
