@@ -2,6 +2,7 @@ package com.vytrack.step_definitions;
 
 import com.vytrack.pages.DashBoardPage;
 import com.vytrack.pages.LoginPage;
+import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -38,17 +39,28 @@ public class LoginStepsDefs {
     @Then("The user should be able to login")
     public void the_user_should_be_able_to_login() {
 
+        BrowserUtils.waitFor(3);
         String actualTitle = Driver.get().getTitle();
         // When using Assert.assertEquals in junit , first expected then actual!!!
         Assert.assertEquals("Dashboard",actualTitle);
     }
     @When("The user enters sales manager credentials")
     public void the_user_enters_sales_manager_credentials() {
-        System.out.println("Enter valid username and password");
+
+        String username = ConfigurationReader.get("sales_manager_username");
+        String password = ConfigurationReader.get("sales_manager_password");
+
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(username,password);
+
     }
-    @When("he user enters store manager credentials")
+    @When("The user enters store manager credentials")
     public void he_user_enters_store_manager_credentials() {
-        System.out.println("Enter valid username and password as a store manager");
+        String username = ConfigurationReader.get("store_manager_username");
+        String password = ConfigurationReader.get("store_manager_password");
+
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(username,password);
     }
 
 

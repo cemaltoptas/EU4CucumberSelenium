@@ -1,6 +1,7 @@
 @login
 Feature: User should be able to login
-  @driver
+
+  @driver @wip
   Scenario: Login as a driver
     Given The user is on the login page
     When The user enters driver information
@@ -11,10 +12,10 @@ Feature: User should be able to login
     When The user enters sales manager credentials
     Then The user should be able to login
 
-    @store_manager @wip
+  @store_manager
   Scenario: Login as a store manager
     Given The user is on the login page
-    When he user enters store manager credentials
+    When The user enters store manager credentials
     Then The user should be able to login
 
 
