@@ -91,6 +91,30 @@ public class LoginStepsDefs extends BasePage{
         Assert.assertEquals(page,pageNumber);
 
     }
+    @Given("The user logged in as a {string}")
+    public void the_user_logged_in_as_a(String userType) {
+        //First go to the web page
+        Driver.get().get(ConfigurationReader.get("url"));
+
+        //Based on input enter that user name information
+        String username =null;
+        String password = null;
+
+        if(userType.equals("driver")) {
+                username = ConfigurationReader.get("driver_username");
+                password = ConfigurationReader.get("driver_password");
+            }else if (userType.equals("sales manager")){
+                username = ConfigurationReader.get("sales_manager_username");
+                password = ConfigurationReader.get("sales_manager_password");
+            }else if (userType.equals("store manager")){
+                username = ConfigurationReader.get("store_manager_username");
+                password = ConfigurationReader.get("sales_manager_password");
+        }
+        //Send username and password based on given user type
+
+        new LoginPage().login(username,password);
+
+    }
 
 
 

@@ -11,7 +11,7 @@ Feature: Contact page
     And The user enters sales manager credentials
     When The user navigates to "Activities" "Calendar Events"
     Then The title contains "Calendar"
-  @wip
+
   Scenario: Menu Options
     Given The user logged in as a "driver"
     Then The user should see following options
@@ -19,4 +19,16 @@ Feature: Contact page
     | Customers |
     | Activities  |
     | System  |
+  @wip
+  Scenario: Menu Option2
+    Given The user logged in as a "sales manager"
+    Then The user should see following options
+      | Dashboards |
+      | Fleet |
+      | Customers |
+      | Sales |
+      | Activities  |
+      | Marketing |
+      | Reports & Segments |
+      | System  |
 
