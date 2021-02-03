@@ -5,7 +5,7 @@ Feature: Contact page
     And The user enters driver information
     When The user navigates to "Customers" "Contacts"
     Then The default page number should be 1
-
+  @wip
   Scenario: Verify Create Calendar Event
     Given The user is on the login page
     And The user enters sales manager credentials
@@ -32,7 +32,7 @@ Feature: Contact page
       | Reports & Segments |
       | System  |
 
-  @wip
+
   Scenario: Login as a given user
     Given The user is on the login page
     When The user logs in using the following credential
