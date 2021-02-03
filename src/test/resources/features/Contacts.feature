@@ -19,7 +19,7 @@ Feature: Contact page
     | Customers |
     | Activities  |
     | System  |
-  @wip
+
   Scenario: Menu Option2
     Given The user logged in as a "sales manager"
     Then The user should see following options
@@ -31,4 +31,14 @@ Feature: Contact page
       | Marketing |
       | Reports & Segments |
       | System  |
+
+  @wip
+  Scenario: Login as a given user
+    Given The user is on the login page
+    When The user logs in using the following credential
+      | username  | user10      |
+      | password  | UserUser123 |
+      | firstname | Brenden     |
+      | lastname  | Schneider   |
+    Then The user should be able to login
 
