@@ -72,6 +72,7 @@ public class LoginStepsDefs extends BasePage{
     }
     @Then("The title contains {string}")
     public void the_title_contains(String expectedTitle) {
+        BrowserUtils.waitFor(3);
        Assert.assertTrue(Driver.get().getTitle().contains(expectedTitle) );
 
     }
@@ -90,4 +91,7 @@ public class LoginStepsDefs extends BasePage{
         Assert.assertEquals(page,pageNumber);
 
     }
+
+
+
 }
