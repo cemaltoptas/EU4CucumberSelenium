@@ -1,4 +1,4 @@
-@login @smoke
+@login
 Feature: User should be able to login
   Background:
     Given The user is on the login page
