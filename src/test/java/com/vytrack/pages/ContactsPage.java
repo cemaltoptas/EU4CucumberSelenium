@@ -1,5 +1,6 @@
 package  com.vytrack.pages;
 
+import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,6 +14,7 @@ public class ContactsPage extends BasePage {
 
     public WebElement getContactEmail(String email){
         String xpath = "//*[contains(text(), '"+email+"') and @data-column-label='Email']";
+        waitUntilLoaderScreenDisappear();
         return Driver.get().findElement(By.xpath(xpath));
     }
 

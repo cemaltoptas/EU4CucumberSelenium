@@ -1,5 +1,6 @@
 package com.vytrack.step_definitions;
 
+import com.vytrack.utilities.DBUtilities;
 import com.vytrack.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -9,29 +10,32 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
     @Before
-    public void setUp(){
+    public void setUp() {
         System.out.println("this is coming from BEFORE");
     }
 
     @After
-    public void tearDown(Scenario scenario){
+    public void tearDown(Scenario scenario) {
 
-            if (scenario.isFailed()) {
-                final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
-                scenario.attach(screenshot,"image/png","screenshot");
-            }
+        if (scenario.isFailed()) {
+            final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", "screenshot");
+        }
 
 
         Driver.closeDriver();
     }
 
     @Before("@db")
-    public void setUpdb(){
-        System.out.println("connecting ti DataBase........");
+    public void setUpdb() {
+
+        //Create connection with database
+        DBUtilities.createConnection();
     }
 
     @After("@db")
-    public void tearDowndb(){
-        System.out.println("connecting ti DataBase........");
+    public void tearDowndb() {
+        //Close connection
+        DBUtilities.destroy();
     }
 }

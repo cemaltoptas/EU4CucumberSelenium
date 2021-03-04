@@ -55,5 +55,11 @@ Feature: Contact page
     Examples:
       | user | firstName | lastName |
       | user10 | Brenden | Schneider |
+  @wip @db
+    Scenario: Contacts tets with emails
+      Given The user logged in as a "sales manager"
+      And The user navigates to "Customers" "Contacts"
+      When The user click on "mbrackstone9@example.com" in contacts
+      Then The information should be match with database
 
 
